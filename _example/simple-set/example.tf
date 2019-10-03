@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 module "route-table" {
-  source = "./../../"
+  source = "git::https://github.com/clouddrove/terraform-aws-route-table.git?ref=tags/0.12.0"
 
   zone_id = "Z3XYSELRQ8JFS"
   names = [
