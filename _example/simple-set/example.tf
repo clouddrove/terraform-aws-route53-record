@@ -5,8 +5,7 @@ provider "aws" {
 module "route-table" {
   source = "./../../"
 
-  record_enabled = true
-  zone_id        = "Z3XYSELRQ8JFS"
+  zone_id = "Z3XYSELRQ8JFS"
   names = [
     "www.",
     "admin."

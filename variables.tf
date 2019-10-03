@@ -2,7 +2,7 @@
 # Description : Terraform Route53 table module variables.
 variable "record_enabled" {
   type        = bool
-  default     = false
+  default     = true
   description = "Whether to create Route53 record set."
 }
 

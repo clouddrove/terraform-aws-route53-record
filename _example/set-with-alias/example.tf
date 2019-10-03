@@ -5,8 +5,7 @@ provider "aws" {
 module "route-table" {
   source = "git::https://github.com/clouddrove/terraform-aws-route-table.git?ref=tags/0.12.0"
 
-  record_enabled = true
-  zone_id        = "Z2FDRFHATA1ER4"
+  zone_id = "Z2FDRFHATA1ER4"
 
   names = [
     "www.",
