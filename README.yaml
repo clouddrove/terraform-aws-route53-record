@@ -5,13 +5,13 @@
 #
 
 # Name of this project
-name : Terraform AWS Route table
+name : Terraform AWS Route53 Record
 
 # License of this project
 license: "MIT"
 
 # Canonical GitHub repo
-github_repo: clouddrove/terraform-aws-route-table
+github_repo: clouddrove/terraform-aws-route53-record
 
 # Badges to display
 badges:
@@ -36,52 +36,27 @@ usage : |-
   Here are some examples of how you can use this module in your inventory structure:
   ### Simple set
   ```hcl
-    module "route-table" {
-      record_enabled  = true
-      zone_id         = "Z2FDRFHATA1ER4"
-      names           = [
-                        "www.",
-                        "admin."
-                       ]
-      types           = [
-                        "A",
-                        "CNAME"
-                       ]
-      ttls            = [
-                        "3600",
-                        "3600",
-                       ]
-      values          = [
-                        "10.0.0.27",
-                        "mydomain.com",
-                       ]
+    module "route53-record" {
+      source  = "git::https://github.com/clouddrove/terraform-aws-route53-record.git?ref=tags/0.12.1"
+      zone_id = "Z1XJD7SSBKXLC1"
+      name    = "www"
+      type    = "A"
+      ttl     = "3600"
+      values  = "10.0.0.27"
     }
   ```
 
   ### Set with alias
   ```hcl
-    module "route-table" {
-      source         = "git::https://github.com/clouddrove/terraform-aws-route-table.git?ref=tags/0.12.0"
-      record_enabled = true
-      zone_id        = "Z2FDRFHATA1ER4"
-      names          = [
-                        "www.",
-                        "admin."
-                      ]
-      types          = [
-                        "A",
-                        "CNAME"
-                      ]
-      alias          = {
-                        names = [
-                          "d130easdflja734js.cloudfront.net"
-                        ]
-                        zone_ids = [
-                          "Z2FDRFHATA1ER4"
-                        ]
-                        evaluate_target_healths = [
-                          false
-                        ]
-                      }
+    module "route53-record" {
+      source  = "git::https://github.com/clouddrove/terraform-aws-route53-record.git?ref=tags/0.12.1"
+      zone_id = "Z1XJD7SSBKXLC1"
+      name    = "www."
+      type    = "A"
+      alias   = {
+        name = "d130easdflja734js.cloudfront.net"
+        zone_id = "Z2FDRFHATA1ER4"
+        evaluate_target_health = false
+      }
     }
   ```
