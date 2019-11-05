@@ -44,7 +44,7 @@ variable "health_check_id" {
 
 variable "alias" {
   type        = map
-  default     = {"names"=[],"zone_ids"=[],"evaluate_target_healths"=[]}
+  default     = {}
   description = "An alias block. Conflicts with ttl & records. Alias record documented below."
 }
 
