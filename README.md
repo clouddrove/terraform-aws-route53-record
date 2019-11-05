@@ -120,18 +120,6 @@ Here are some examples of how you can use this module in your inventory structur
 | zone_id | Zone ID. | string | `` | no |
 
 
-
-
-## Testing
-In this module testing is performed with [terratest](https://github.com/gruntwork-io/terratest) and it creates a small piece of infrastructure, matches the output like ARN, ID and Tags name etc and destroy infrastructure in your AWS account. This testing is written in GO, so you need a [GO environment](https://golang.org/doc/install) in your system.
-
-You need to run the following command in the testing folder:
-```hcl
-  go test -run Test
-```
-
-
-
 ## Feedback
 If you come accross a bug or have any feedback, please log it in our [issue tracker](https://github.com/clouddrove/terraform-aws-route53-record/issues), or feel free to drop us an email at [hello@clouddrove.com](mailto:hello@clouddrove.com).
 
