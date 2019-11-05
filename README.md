@@ -72,25 +72,23 @@ Here are some examples of how you can use this module in your inventory structur
 ### Simple set
 ```hcl
   module "route53-record" {
-    source = "git::https://github.com/clouddrove/terraform-aws-route53-record.git?ref=tags/0.12.1"
-
+    source  = "git::https://github.com/clouddrove/terraform-aws-route53-record.git?ref=tags/0.12.1"
     zone_id = "Z1XJD7SSBKXLC1"
-    name = "www."
-    type = "A"
-    ttl = "3600"
-    values = "10.0.0.27"
+    name    = "www"
+    type    = "A"
+    ttl     = "3600"
+    values  = "10.0.0.27"
   }
 ```
 
 ### Set with alias
 ```hcl
   module "route53-record" {
-    source = "git::https://github.com/clouddrove/terraform-aws-route53-record.git?ref=tags/0.12.1"
-
+    source  = "git::https://github.com/clouddrove/terraform-aws-route53-record.git?ref=tags/0.12.1"
     zone_id = "Z1XJD7SSBKXLC1"
-    name = "www."
-    type = "A"
-    alias = {
+    name    = "www."
+    type    = "A"
+    alias   = {
       name = "d130easdflja734js.cloudfront.net"
       zone_id = "Z2FDRFHATA1ER4"
       evaluate_target_health = false
