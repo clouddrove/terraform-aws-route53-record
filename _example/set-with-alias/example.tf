@@ -3,8 +3,7 @@ provider "aws" {
 }
 
 module "route53-record" {
-  source  = "clouddrove/route53-record/aws"
-  version = "0.13.0"
+  source  = "./../../"
   zone_id = "Z1XJD7SSBKXLC1"
   name    = "www"
   type    = "A"
