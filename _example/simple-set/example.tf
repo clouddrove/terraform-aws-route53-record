@@ -3,8 +3,7 @@ provider "aws" {
 }
 
 module "route53-record" {
-  source = "git::https://github.com/clouddrove/terraform-aws-route53-record.git?ref=tags/0.12.1"
-
+  source  = "./../../"
   zone_id = "Z1XJD7SSBKXLC1"
   name    = "www"
   type    = "A"
