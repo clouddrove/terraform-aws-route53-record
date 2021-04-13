@@ -107,7 +107,7 @@ Here are some examples of how you can use this module in your inventory structur
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| alias | An alias block. Conflicts with ttl & records. Alias record documented below. | `map` | `{}` | no |
+| alias | An alias block. Conflicts with ttl & records. Alias record documented below. | `map(any)` | `{}` | no |
 | allow\_overwrite | Allow creation of this record in Terraform to overwrite an existing record, if any. This does not affect the ability to update the record in Terraform and does not prevent other resources within Terraform or manual Route 53 changes outside Terraform from overwriting this record. false by default. This configuration is not recommended for most environments. | `bool` | `false` | no |
 | health\_check\_id | The health check the record should be associated with. | `string` | `""` | no |
 | multivalue\_answer\_routing\_policy | Set to true to indicate a multivalue answer routing policy. Conflicts with any other routing policy. | `any` | `null` | no |
