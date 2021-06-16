@@ -38,7 +38,7 @@ usage : |-
   ```hcl
     module "route53-record" {
       source  = "clouddrove/route53-record/aws"
-      version = "0.14.0"
+      version = "0.15.0"
       zone_id = "Z1XJD7SSBKXLC1"
       name    = "www"
       type    = "A"
@@ -51,7 +51,7 @@ usage : |-
   ```hcl
     module "route53-record" {
       source  = "clouddrove/route53-record/aws"
-      version = "0.14.0"
+      version = "0.15.0"
       zone_id = "Z1XJD7SSBKXLC1"
       name    = "www."
       type    = "A"
