@@ -7,14 +7,14 @@
     Terraform AWS Route53 Record
 </h1>
 
-<p align="center" style="font-size: 1.2rem;">
+<p align="center" style="font-size: 1.2rem;"> 
     Terraform module to create Route53 table record set resource on AWS.
      </p>
 
 <p align="center">
 
 <a href="https://www.terraform.io">
-  <img src="https://img.shields.io/badge/Terraform-v0.14-green" alt="Terraform">
+  <img src="https://img.shields.io/badge/Terraform-v0.15-green" alt="Terraform">
 </a>
 <a href="LICENSE.md">
   <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="Licence">
@@ -38,7 +38,7 @@
 <hr>
 
 
-We eat, drink, sleep and most importantly love **DevOps**. We are working towards strategies for standardizing architecture while ensuring security for the infrastructure. We are strong believer of the philosophy <b>Bigger problems are always solved by breaking them into smaller manageable problems</b>. Resonating with microservices architecture, it is considered best-practice to run database, cluster, storage in smaller <b>connected yet manageable pieces</b> within the infrastructure.
+We eat, drink, sleep and most importantly love **DevOps**. We are working towards strategies for standardizing architecture while ensuring security for the infrastructure. We are strong believer of the philosophy <b>Bigger problems are always solved by breaking them into smaller manageable problems</b>. Resonating with microservices architecture, it is considered best-practice to run database, cluster, storage in smaller <b>connected yet manageable pieces</b> within the infrastructure. 
 
 This module is basically combination of [Terraform open source](https://www.terraform.io/) and includes automatation tests and examples. It also helps to create and improve your infrastructure with minimalistic code instead of maintaining the whole infrastructure code yourself.
 
@@ -49,7 +49,7 @@ We have [*fifty plus terraform modules*][terraform_modules]. A few of them are c
 
 ## Prerequisites
 
-This module has a few dependencies:
+This module has a few dependencies: 
 
 - [Terraform 0.13](https://learn.hashicorp.com/terraform/getting-started/install.html)
 - [Go](https://golang.org/doc/install)
@@ -73,7 +73,7 @@ Here are some examples of how you can use this module in your inventory structur
 ```hcl
   module "route53-record" {
     source  = "clouddrove/route53-record/aws"
-    version = "0.14.0"
+    version = "0.15.0"
     zone_id = "Z1XJD7SSBKXLC1"
     name    = "www"
     type    = "A"
@@ -86,7 +86,7 @@ Here are some examples of how you can use this module in your inventory structur
 ```hcl
   module "route53-record" {
     source  = "clouddrove/route53-record/aws"
-    version = "0.14.0"
+    version = "0.15.0"
     zone_id = "Z1XJD7SSBKXLC1"
     name    = "www."
     type    = "A"
@@ -113,11 +113,11 @@ Here are some examples of how you can use this module in your inventory structur
 | multivalue\_answer\_routing\_policy | Set to true to indicate a multivalue answer routing policy. Conflicts with any other routing policy. | `any` | `null` | no |
 | name | The name of the record. | `string` | `""` | no |
 | record\_enabled | Whether to create Route53 record set. | `bool` | `true` | no |
-| set\_identifier | Unique identifier to differentiate records with routing policies from one another. Required if using failover, geolocation, latency, or weighted routing policies documented below. | `string` | `""` | no |
+| set\_identifier | Unique identifier to differentiate records with routing policies from one another. Required if using failover, geolocation, latency, or weighted routing policies documented below. | `string` | `null` | no |
 | ttl | (Required for non-alias records) The TTL of the record. | `string` | `""` | no |
 | type | The record type. Valid values are A, AAAA, CAA, CNAME, MX, NAPTR, NS, PTR, SOA, SPF, SRV and TXT. | `string` | `""` | no |
 | values | (Required for non-alias records) A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add "" inside the Terraform configuration string (e.g. "first255characters""morecharacters"). | `string` | `""` | no |
-| zone\_id | Zone ID. | `string` | `""` | no |
+| zone\_id | Zone ID. | `string` | n/a | yes |
 
 ## Outputs
 
@@ -127,7 +127,7 @@ No output.
 
 
 ## Testing
-In this module testing is performed with [terratest](https://github.com/gruntwork-io/terratest) and it creates a small piece of infrastructure, matches the output like ARN, ID and Tags name etc and destroy infrastructure in your AWS account. This testing is written in GO, so you need a [GO environment](https://golang.org/doc/install) in your system.
+In this module testing is performed with [terratest](https://github.com/gruntwork-io/terratest) and it creates a small piece of infrastructure, matches the output like ARN, ID and Tags name etc and destroy infrastructure in your AWS account. This testing is written in GO, so you need a [GO environment](https://golang.org/doc/install) in your system. 
 
 You need to run the following command in the testing folder:
 ```hcl
@@ -136,7 +136,7 @@ You need to run the following command in the testing folder:
 
 
 
-## Feedback
+## Feedback 
 If you come accross a bug or have any feedback, please log it in our [issue tracker](https://github.com/clouddrove/terraform-aws-route53-record/issues), or feel free to drop us an email at [hello@clouddrove.com](mailto:hello@clouddrove.com).
 
 If you have found it worth your time, go ahead and give us a ★ on [our GitHub](https://github.com/clouddrove/terraform-aws-route53-record)!
