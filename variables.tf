@@ -32,7 +32,7 @@ variable "values" {
 
 variable "set_identifier" {
   type        = string
-  default     = ""
+  default     = null
   description = "Unique identifier to differentiate records with routing policies from one another. Required if using failover, geolocation, latency, or weighted routing policies documented below."
 }
 
@@ -61,6 +61,5 @@ variable "allow_overwrite" {
 
 variable "zone_id" {
   type        = string
-  default     = ""
   description = "Zone ID."
 }

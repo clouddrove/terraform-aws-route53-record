@@ -3,28 +3,26 @@ on:
   pull_request:
     branches:
       - master
-
 jobs:
   fmt:
     name: 'terraform fmt'
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'
-        uses: actions/checkout@master
+        uses: actions/checkout@v2.3.4
 
       - name: 'Terraform Format'
-        uses: 'clouddrove/github-actions@v6.0'
+        uses: 'clouddrove/github-actions@v7.0'
         with:
           actions_subcommand: 'fmt'
 
-  memcached:
+  set-with-alias:
     name: 'set-with-alias'
     needs: fmt
     runs-on: ubuntu-latest
     steps:
-
       - name: 'Checkout'
-        uses: actions/checkout@master
+        uses: actions/checkout@v2.3.4
 
       - name: 'Configure AWS Credentials'
         uses: clouddrove/configure-aws-credentials@v1
@@ -33,31 +31,31 @@ jobs:
           aws-secret-access-key: ${{ secrets.TEST_AWS_ACCESS_SECRET_KEY }}
           aws-region: us-east-2
 
-      - name: 'Terraform init set-with-alias'
-        uses: 'clouddrove/github-actions@v6.0'
+      - name: 'Terraform init for set-with-alias'
+        uses: 'clouddrove/github-actions@v7.0'
         with:
           actions_subcommand: 'init'
           tf_actions_working_dir: ./_example/set-with-alias
 
-      - name: 'Terraform validate set-with-alias'
-        uses: 'clouddrove/github-actions@v6.0'
+      - name: 'Terraform validate for set-with-alias'
+        uses: 'clouddrove/github-actions@v7.0'
         with:
           actions_subcommand: 'validate'
           tf_actions_working_dir: ./_example/set-with-alias
 
-      - name: 'Terraform plan set-with-alias'
-        uses: 'clouddrove/github-actions@v6.0'
+      - name: 'Terraform plan for generate set-with-alias'
+        uses: 'clouddrove/github-actions@v7.0'
         with:
           actions_subcommand: 'plan'
           tf_actions_working_dir: ./_example/set-with-alias
-
-  redis:
+  simple-set:
     name: 'simple-set'
     needs: fmt
     runs-on: ubuntu-latest
     steps:
+
       - name: 'Checkout'
-        uses: actions/checkout@master
+        uses: actions/checkout@v2.3.4
 
       - name: 'Configure AWS Credentials'
         uses: clouddrove/configure-aws-credentials@v1
@@ -66,23 +64,47 @@ jobs:
           aws-secret-access-key: ${{ secrets.TEST_AWS_ACCESS_SECRET_KEY }}
           aws-region: us-east-2
 
-      - name: 'Terraform init simple-set'
-        uses: 'clouddrove/github-actions@v6.0'
+      - name: 'Terraform init for simple-set'
+        uses: 'clouddrove/github-actions@v7.0'
         with:
           actions_subcommand: 'init'
           tf_actions_working_dir: ./_example/simple-set
 
-      - name: 'Terraform validate simple-set'
-        uses: 'clouddrove/github-actions@v6.0'
+      - name: 'Terraform validate for generate simple-set'
+        uses: 'clouddrove/github-actions@v7.0'
         with:
           actions_subcommand: 'validate'
           tf_actions_working_dir: ./_example/simple-set
 
-      - name: 'Terraform plan simple-set'
-        uses: 'clouddrove/github-actions@v6.0'
+      - name: 'Terraform plan for simple-set'
+        uses: 'clouddrove/github-actions@v7.0'
         with:
           actions_subcommand: 'plan'
           tf_actions_working_dir: ./_example/simple-set
+
+  pre-commit:
+    name: 'Pre-Commit'
+    needs:
+      - fmt
+      - set-with-alias
+      - simple-set
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v2.3.4
+
+      - name: 'Install Tflint'
+        run: |
+          curl https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
+
+      - name: 'Pre-Commit 🔎'
+        uses: pre-commit/action@v2.0.3
+        continue-on-error: true
+
+
+      - name: 'Pre-Commit 🔎'
+        uses: pre-commit/action@v2.0.3
+        continue-on-error: true
 
       - name: 'Slack Notification'
         uses: clouddrove/action-slack@v2
