@@ -10,14 +10,10 @@ updates:
     schedule:
       interval: "weekly"
   - package-ecosystem: "terraform" # See documentation for possible values
-    directory: "_example/generate-certificate-dns" # Location of package manifests
+    directory: "_example/set-with-alias" # Location of package manifests
     schedule:
       interval: "weekly"
   - package-ecosystem: "terraform" # See documentation for possible values
-    directory: "_example/generate-certificate-email" # Location of package manifests
-    schedule:
-      interval: "weekly"
-  - package-ecosystem: "terraform" # See documentation for possible values
-    directory: "_example/import-certificate" # Location of package manifests
+    directory: "_example/simple-set" # Location of package manifests
     schedule:
       interval: "weekly"
