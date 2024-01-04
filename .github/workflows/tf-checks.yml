@@ -1,0 +1,15 @@
+name: tf-checks
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+  workflow_dispatch:
+jobs:
+  set-with-alias:
+    uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@1.0.9
+    with:
+      working_directory: './_example/set-with-alias/'
+  simple-set:
+    uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@1.0.9
+    with:
+      working_directory: './_example/simple-set/'
