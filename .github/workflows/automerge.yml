@@ -8,5 +8,5 @@ jobs:
     secrets:
       GITHUB: ${{ secrets.GITHUB }}
     with:
-      tfcheck: 'set-with-alias / Get min/max versions'
+      tfcheck: 'set-with-alias / Check code format / Get min/max versions'
 ...
