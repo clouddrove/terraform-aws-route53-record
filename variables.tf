@@ -63,3 +63,14 @@ variable "zone_id" {
   type        = string
   description = "Zone ID."
 }
+
+variable "records" {
+  description = "Specifies values for route53 private alias records"
+  type = map(object({
+    name  = string
+    type  = string
+    alias = map(string)
+    }
+  ))
+
+}
