@@ -13,8 +13,8 @@ variable "type" {
 }
 
 variable "ttl" {
-  type        = string
-  default     = ""
+  type        = number
+  default     = null
   description = "(Required for non-alias records) The TTL of the record."
 }
 
@@ -49,6 +49,7 @@ variable "alias" {
 }
 
 variable "multivalue_answer_routing_policy" {
+  type        = bool
   default     = null
   description = "Set to true to indicate a multivalue answer routing policy. Conflicts with any other routing policy."
 }
@@ -63,3 +64,18 @@ variable "zone_id" {
   type        = string
   description = "Zone ID."
 }
+
+variable "records" {
+  description = "Specifies values for route53 private alias records"
+  type = map(object({
+    name  = string
+    type  = string
+    alias = map(string)
+    }
+  ))
+
+}
+
+
+
+
