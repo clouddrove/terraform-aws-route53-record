@@ -1,9 +1,16 @@
 # Module      : Route53 table
 # Description : Terraform Route53 table module variables.
-variable "record_enabled" {
+variable "record_default_enabled" {
   type        = bool
   default     = true
   description = "Whether to create Route53 record set."
+}
+
+
+variable "record_alias_enabled" {
+  type        = bool
+  default     = true
+  description = "Whether to create Route53 alias record set."
 }
 
 variable "type" {
@@ -68,14 +75,25 @@ variable "zone_id" {
 variable "records" {
   description = "Specifies values for route53 private alias records"
   type = map(object({
-    name  = string
-    type  = string
-    alias = map(string)
+    zone_id = string
+    name    = string
+    type    = string
+    alias   = map(string)
     }
   ))
-
 }
 
+variable "default_records" {
+  description = "Specifies values for route53 private alias records"
+  type = map(object({
+    records = set(string)
+    zone_id = string
+    ttl     = number
+    name    = string
+    type    = string
 
+    }
+  ))
+}
 
 
