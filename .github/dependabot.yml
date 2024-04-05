@@ -16,7 +16,7 @@ updates:
     reviewers:
       - "approvers"
   - package-ecosystem: "terraform" # See documentation for possible values
-    directory: "_example/set-with-alias" # Location of package manifests
+    directory: "examples/set-with-alias" # Location of package manifests
     schedule:
       interval: "weekly"
     # Add assignees
@@ -26,7 +26,7 @@ updates:
     reviewers:
       - "approvers"
   - package-ecosystem: "terraform" # See documentation for possible values
-    directory: "_example/simple-set" # Location of package manifests
+    directory: "examples/simple-set" # Location of package manifests
     schedule:
       interval: "weekly"
     # Add assignees
