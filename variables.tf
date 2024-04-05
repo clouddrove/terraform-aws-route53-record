@@ -2,7 +2,7 @@
 # Description : Terraform Route53 table module variables.
 variable "record_default_enabled" {
   type        = bool
-  default     = true
+  default     = false
   description = "Whether to create Route53 record set."
 }
 
@@ -48,7 +48,8 @@ variable "alias_records" {
     alias   = map(string)
     }
   ))
-  default = {}
+  default = {
+  }
 }
 
 variable "default_records" {
@@ -63,6 +64,7 @@ variable "default_records" {
     }
   ))
   default = {}
+
 
 }
 
