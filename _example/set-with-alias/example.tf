@@ -30,7 +30,7 @@ module "records_route53" {
     }
   }
   #---- alias records
-  record_alias_enabled = false
+  record_alias_enabled = true
 
   alias_records = {
     record1 = {
@@ -38,7 +38,7 @@ module "records_route53" {
       name    = "www"
       type    = "A"
       alias = {
-        name                   = d130easdflja734js.cloudfront.net
+        name                   = "d130easdflja734js.cloudfront.net"
         zone_id                = "Z2FDRFHATA1ER4"
         evaluate_target_health = true
       }
@@ -48,7 +48,7 @@ module "records_route53" {
       name    = "www"
       type    = "A"
       alias = {
-        name                   = d130easdflja734js.cloudfront.net
+        name                   = "d130easdflja734js.cloudfront.net"
         zone_id                = "Z2FDRFHATA1ER4"
         evaluate_target_health = true
       }
