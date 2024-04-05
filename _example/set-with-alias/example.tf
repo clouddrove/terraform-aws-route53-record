@@ -4,7 +4,6 @@ provider "aws" {
 
 module "records_route53" {
   source  = "../.."
-  zone_id = "data.aws_route53_zone.this.zone_id"
   #------default records
   record_default_enabled = false
 
