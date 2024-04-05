@@ -1,11 +1,16 @@
-provider "aws" {
+
+locals {
   region = "us-east-1"
 }
 
+provider "aws" {
+  region = local.region
+}
+
 module "records_route53" {
-  source  = "../.."
+  source = "../.."
   #------default records
-  record_default_enabled = false
+  record_default_enabled = true
 
   default_records = {
     record1 = {
@@ -19,14 +24,14 @@ module "records_route53" {
       records = ["5.6.7.8"]
       zone_id = "Z0xxxxxxxxxxxxxHZ"
       ttl     = 300
-      name    = "clouddrove.ca"
+      name    = "api.clouddrove.ca"
       type    = "A"
     }
   }
   #---- alias records
   record_alias_enabled = true
 
-  records = {
+  alias_records = {
     record1 = {
       zone_id = "Z0xxxxxxxxxxxxxxxxEP"
       name    = "www"

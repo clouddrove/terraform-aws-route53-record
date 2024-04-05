@@ -39,7 +39,7 @@ variable "allow_overwrite" {
 }
 
 
-variable "records" {
+variable "alias_records" {
   description = "Specifies values for route53 private alias records"
   type = map(object({
     zone_id = string
@@ -48,6 +48,7 @@ variable "records" {
     alias   = map(string)
     }
   ))
+  default = {}
 }
 
 variable "default_records" {
@@ -61,6 +62,8 @@ variable "default_records" {
 
     }
   ))
+  default = {}
+
 }
 
 
