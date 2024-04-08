@@ -11,7 +11,7 @@ provider "aws" {
 module "records_route53" {
   source = "../.."
   #------default records
-  record_default_enabled = false
+  enable_default_records = false
 
   default_records = {
     record1 = {
@@ -30,7 +30,7 @@ module "records_route53" {
     }
   }
   #---- alias records
-  record_alias_enabled = true
+  enable_alias_records = true
 
   alias_records = {
     record1 = {

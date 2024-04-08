@@ -3,7 +3,7 @@
 ##----------------------------------------------------------------------------------
 
 resource "aws_route53_record" "default" {
-  for_each = var.record_default_enabled ? var.default_records : {}
+  for_each = var.enable_default_records ? var.default_records : {}
 
   zone_id                          = each.value.zone_id
   name                             = each.value.name
@@ -20,7 +20,7 @@ resource "aws_route53_record" "default" {
 ##----------------------------------------------------------------------------------
 
 resource "aws_route53_record" "alias" {
-  for_each                         = var.record_alias_enabled ? var.alias_records : {}
+  for_each                         = var.enable_alias_records ? var.alias_records : {}
   zone_id                          = each.value.zone_id
   name                             = each.value.name
   type                             = each.value.type

@@ -1,13 +1,13 @@
 # Module      : Route53 table
 # Description : Terraform Route53 table module variables.
-variable "record_default_enabled" {
+variable "enable_default_records" {
   type        = bool
   default     = false
   description = "Whether to create Route53 record set."
 }
 
 
-variable "record_alias_enabled" {
+variable "enable_alias_records" {
   type        = bool
   default     = true
   description = "Whether to create Route53 alias record set."
