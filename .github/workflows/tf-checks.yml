@@ -8,5 +8,5 @@ jobs:
   set-with-alias:
     uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@1.0.9
     with:
-      working_directory: './examples/set-with-alias/'
+      working_directory: './examples/'
  

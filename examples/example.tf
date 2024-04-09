@@ -9,7 +9,7 @@ provider "aws" {
 
 
 module "records_route53" {
-  source = "../.."
+  source = "../"
   #------default records
   enable_default_records = false
 
