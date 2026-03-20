@@ -1,15 +1,20 @@
 name: tf-checks
+permissions:
+  id-token: write
 on:
-  push:
-    branches: [ master ]
   pull_request:
-  workflow_dispatch:
 jobs:
   set-with-alias:
-    uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@master
+    uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@v2
     with:
       working_directory: './examples/set-with-alias/'
+      provider: aws
+    secrets: 
+      BUILD_ROLE: ${{ secrets.BUILD_ROLE }}
   simple-set:
-    uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@master
+    uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@v2
     with:
       working_directory: './examples/simple-set/'
+      provider: aws
+    secrets: 
+      BUILD_ROLE: ${{ secrets.BUILD_ROLE }}
