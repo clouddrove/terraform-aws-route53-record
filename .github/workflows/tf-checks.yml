@@ -5,6 +5,7 @@ on:
   pull_request:
 jobs:
   set-with-alias:
+    if: github.actor != 'dependabot[bot]'
     uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@master
     with:
       working_directory: './examples/set-with-alias/'
@@ -12,6 +13,7 @@ jobs:
     secrets: 
       BUILD_ROLE: ${{ secrets.BUILD_ROLE }}
   simple-set:
+    if: github.actor != 'dependabot[bot]'
     uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@master
     with:
       working_directory: './examples/simple-set/'
