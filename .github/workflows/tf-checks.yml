@@ -11,6 +11,7 @@ jobs:
       working_directory: './examples/set-with-alias/'
       provider: aws
       enable_plan: true
+      show_plan: false
     secrets: 
       BUILD_ROLE: ${{ secrets.BUILD_ROLE }}
   simple-set:
@@ -20,5 +21,6 @@ jobs:
       working_directory: './examples/simple-set/'
       provider: aws
       enable_plan: true
+      show_plan: false
     secrets: 
       BUILD_ROLE: ${{ secrets.BUILD_ROLE }}
