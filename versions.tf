@@ -10,6 +10,6 @@ terraform {
   }
 
   provider_meta "aws" {
-    module_name = "clouddrove/terraform-aws-route53-record"
+    user_agent = ["github.com/clouddrove/terraform-aws-route53-record"]
   }
 }
