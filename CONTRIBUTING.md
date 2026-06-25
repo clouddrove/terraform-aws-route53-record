@@ -51,6 +51,8 @@ We use [Conventional Commits](https://www.conventionalcommits.org/). All commit 
 type: description
 ```
 
+The subject must be lowercase and not sentence-case, start-case, pascal-case, or upper-case.
+
 **Allowed types:** `fix`, `feat`, `docs`, `ci`, `chore`, `test`, `refactor`, `style`, `perf`, `build`, `revert`
 
 **Examples:**
