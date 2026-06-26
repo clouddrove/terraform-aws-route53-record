@@ -11,5 +11,6 @@ jobs:
     uses: clouddrove/github-shared-workflows/.github/workflows/security-tfsec.yml@master
     secrets:
       GITHUB: ${{ secrets.GITHUB_TOKEN }}
+      BUILD_ROLE: ${{ secrets.BUILD_ROLE }}
     with:
       working_directory: './'     
