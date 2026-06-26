@@ -1,9 +1,8 @@
 name: tf-checks
+permissions:
+  id-token: write
 on:
   pull_request:
-    paths:
-      - '**/*.tf'
-      - '*.tf'
 jobs:
   set-with-alias:
     if: github.actor != 'dependabot[bot]'
@@ -13,7 +12,7 @@ jobs:
       provider: aws
       enable_plan: true
       show_plan: false
-    secrets:
+    secrets: 
       BUILD_ROLE: ${{ secrets.BUILD_ROLE }}
   simple-set:
     if: github.actor != 'dependabot[bot]'
@@ -23,5 +22,5 @@ jobs:
       provider: aws
       enable_plan: true
       show_plan: false
-    secrets:
-      BUILD_ROLE: ${{ secrets.BUILD_ROLE }} 
+    secrets: 
+      BUILD_ROLE: ${{ secrets.BUILD_ROLE }}
