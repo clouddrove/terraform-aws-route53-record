@@ -24,4 +24,4 @@ jobs:
       enable_plan: true
       show_plan: false
     secrets:
-      BUILD_ROLE: ${{ secrets.BUILD_ROLE }}
+      BUILD_ROLE: ${{ secrets.BUILD_ROLE }} 

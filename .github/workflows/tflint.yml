@@ -1,4 +1,4 @@
-name: tf-lint1
+name: tf-lint
 on:
   pull_request:
     paths:
