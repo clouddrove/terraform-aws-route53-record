@@ -14,7 +14,7 @@ resource "aws_route53_record" "default" {
   health_check_id                  = var.health_check_id
   multivalue_answer_routing_policy = var.multivalue_answer_routing_policy
   allow_overwrite                  = var.allow_overwrite
-} 
+}
 
 # Module      : Route53 Record Set
 # Description : Terraform module to create Route53 record sets resource on AWS.
