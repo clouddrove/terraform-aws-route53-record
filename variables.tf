@@ -8,7 +8,7 @@ variable "record_enabled" {
 
 variable "type" {
   type        = string
-  default     = ""
+  default     = "true"
   description = "The record type. Valid values are A, AAAA, CAA, CNAME, MX, NAPTR, NS, PTR, SOA, SPF, SRV and TXT. "
 }
 
