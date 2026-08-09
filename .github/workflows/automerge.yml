@@ -1,3 +1,4 @@
+---
 name: Auto merge
 
 on:
@@ -10,9 +11,9 @@ permissions:
 
 jobs:
   auto-merge:
-    uses: clouddrove/github-shared-workflows/.github/workflows/pr-auto-merge.yml@master
+    uses: clouddrove/github-shared-workflows/.github/workflows/pr-auto-merge.yml@v2
     secrets:
       GITHUB: ${{ secrets.GITHUB_TOKEN }}
     with:
-      tfcheck: 'set-with-alias / Check code format'
+      tfcheck: 'complete / Check code format'
 ...
